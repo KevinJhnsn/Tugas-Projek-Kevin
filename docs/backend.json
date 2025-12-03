@@ -1,0 +1,176 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "User Profile",
+      "description": "Stores public information about a user.",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The user's display name."
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "The user's primary email address."
+        },
+        "avatarUrl": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL for the user's profile picture."
+        }
+      },
+      "required": ["name", "email"]
+    },
+    "SavingsGoal": {
+      "title": "Savings Goal",
+      "description": "Represents a single savings goal for a user or a family.",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the savings goal."
+        },
+        "targetAmount": {
+          "type": "number",
+          "description": "The target amount of money to save."
+        },
+        "currentAmount": {
+          "type": "number",
+          "description": "The currently saved amount."
+        },
+        "description": {
+          "type": "string",
+          "description": "A short description of the goal."
+        },
+        "imageUrl": {
+            "type": "string",
+            "format": "uri",
+            "description": "URL for an image representing the goal."
+        },
+        "category": {
+          "type": "string",
+          "description": "Category of the goal (e.g., 'personal', 'child', 'retirement', 'family')."
+        },
+        "status": {
+          "type": "string",
+          "enum": ["active", "completed"],
+          "description": "The current status of the goal."
+        },
+        "ownerId": {
+          "type": "string",
+          "description": "The UID of the user who owns this goal. Could also be a familyId for shared goals."
+        }
+      },
+      "required": ["name", "targetAmount", "currentAmount", "category", "status", "ownerId"]
+    },
+    "Transaction": {
+      "title": "Transaction",
+      "description": "Represents a single income or expense transaction.",
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["income", "expense"],
+          "description": "The type of the transaction."
+        },
+        "description": {
+          "type": "string",
+          "description": "A description of what the transaction was for."
+        },
+        "amount": {
+          "type": "number",
+          "description": "The amount of the transaction."
+        },
+        "category": {
+          "type": "string",
+          "description": "The category of the transaction (e.g., 'Gaji', 'Makanan', 'Tagihan')."
+        },
+        "date": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date and time of the transaction."
+        },
+        "userId": {
+            "type": "string",
+            "description": "The UID of the user this transaction belongs to."
+        }
+      },
+      "required": ["type", "description", "amount", "category", "date", "userId"]
+    },
+    "Family": {
+      "title": "Family Group",
+      "description": "Represents a group of users for collaborative saving.",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the family group."
+        },
+        "adminId": {
+          "type": "string",
+          "description": "The UID of the user who created and manages the group."
+        }
+      },
+      "required": ["name", "adminId"]
+    },
+    "FamilyMember": {
+      "title": "Family Member",
+      "description": "Represents a member within a family group.",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "The UID of the user."
+        },
+        "role": {
+          "type": "string",
+          "enum": ["admin", "member"],
+          "description": "The role of the user within the group."
+        }
+      },
+      "required": ["userId", "role"]
+    }
+  },
+  "auth": {
+    "providers": ["google.com"]
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": {
+        "$ref": "#/entities/UserProfile"
+      },
+      "description": "Stores user profile information."
+    },
+    "/users/{userId}/transactions": {
+      "schema": {
+        "$ref": "#/entities/Transaction"
+      },
+      "description": "A sub-collection storing all transactions for a specific user."
+    },
+    "/users/{userId}/goals": {
+      "schema": {
+        "$ref": "#/entities/SavingsGoal"
+      },
+      "description": "A sub-collection storing personal, child, and retirement goals for a user."
+    },
+    "/families/{familyId}": {
+      "schema": {
+        "$ref": "#/entities/Family"
+      },
+      "description": "Stores information about a family group."
+    },
+    "/families/{familyId}/members": {
+      "schema": {
+        "$ref": "#/entities/FamilyMember"
+      },
+      "description": "A sub-collection storing all members of a family."
+    },
+    "/families/{familyId}/goals": {
+      "schema": {
+        "$ref": "#/entities/SavingsGoal"
+      },
+      "description": "A sub-collection storing shared savings goals for a family."
+    }
+  }
+}

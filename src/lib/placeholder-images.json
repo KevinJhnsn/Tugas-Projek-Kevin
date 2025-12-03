@@ -1,0 +1,34 @@
+{
+  "placeholderImages": [
+    {
+      "id": "kevin-avatar",
+      "description": "Avatar for user Kevin",
+      "imageUrl": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxwcm9maWxlJTIwcGljdHVyZXxlbnwwfHx8fDE3NjQ3NTQxNjR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "profile picture"
+    },
+    {
+      "id": "goal-darurat",
+      "description": "Emergency fund goal image",
+      "imageUrl": "https://images.unsplash.com/photo-1643227991784-fabfe0cf4470?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxlbWVyZ2VuY3klMjBmdW5kfGVufDB8fHx8MTc2NDc2NTc2Mnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "emergency fund"
+    },
+    {
+      "id": "goal-liburan",
+      "description": "Vacation goal image",
+      "imageUrl": "https://images.unsplash.com/photo-1624104979163-4837da69adda?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHx2YWNhdGlvbiUyMGJhbGl8ZW58MHx8fHwxNzY0NzY1NzYyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "vacation bali"
+    },
+    {
+      "id": "goal-laptop",
+      "description": "New laptop goal image",
+      "imageUrl": "https://images.unsplash.com/photo-1625296278034-71e307fed277?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxuZXclMjBsYXB0b3B8ZW58MHx8fHwxNzY0NzYzNTc0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "new laptop"
+    },
+    {
+      "id": "goal-pendidikan",
+      "description": "Child education goal image",
+      "imageUrl": "https://images.unsplash.com/photo-1653945475246-78f575f7c112?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxlZHVjYXRpb24lMjBncmFkdWF0aW9ufGVufDB8fHx8MTc2NDc2NTc2Mnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "education graduation"
+    }
+  ]
+}
